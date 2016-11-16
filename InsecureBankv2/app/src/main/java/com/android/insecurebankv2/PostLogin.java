@@ -36,6 +36,22 @@ public class PostLogin extends Activity {
 	Button changepasswd_button;
 	String uname;
 
+    private int getRootStatus() {
+        return R.id.rootStatus;
+    }
+
+    private int getTrfButton() {
+        return R.id.trf_button;
+    }
+
+    private int getViewStatementButton() {
+        return R.id.viewStatement_button;
+    }
+
+    private int getChangePasswd() {
+        return R.id.button_ChangePasswd;
+    }
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -43,13 +59,15 @@ public class PostLogin extends Activity {
 		Intent intent = getIntent();
 		uname = intent.getStringExtra("uname");
 
-        root_status =(TextView) findViewById(R.id.rootStatus);
+        //root_status =(TextView) findViewById(R.id.rootStatus);
+        root_status =(TextView) findViewById(getRootStatus());
         //   Display root status
         showRootStatus();
 
 
 
-		transfer_button = (Button) findViewById(R.id.trf_button);
+		//transfer_button = (Button) findViewById(R.id.trf_button);
+		transfer_button = (Button) findViewById(getTrfButton());
 		transfer_button.setOnClickListener(new View.OnClickListener() {
 
 			@Override
@@ -62,7 +80,8 @@ public class PostLogin extends Activity {
 				startActivity(dT);
 			}
 		});
-		statement_button = (Button) findViewById(R.id.viewStatement_button);
+		//statement_button = (Button) findViewById(R.id.viewStatement_button);
+		statement_button = (Button) findViewById(getViewStatementButton());
 		statement_button.setOnClickListener(new View.OnClickListener() {
 
 			@Override
@@ -71,7 +90,8 @@ public class PostLogin extends Activity {
 				viewStatment();
 			}
 		});
-		changepasswd_button = (Button) findViewById(R.id.button_ChangePasswd);
+		//changepasswd_button = (Button) findViewById(R.id.button_ChangePasswd);
+		changepasswd_button = (Button) findViewById(getChangePasswd());
 		changepasswd_button.setOnClickListener(new View.OnClickListener() {
 
 			@Override
