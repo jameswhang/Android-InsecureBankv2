@@ -79,6 +79,23 @@ public class DoTransfer extends Activity {
 	Button button1;
 	SharedPreferences serverDetails;
 	public static final String MYPREFS2 = "mySharedPreferences";
+
+	private int getEditTextFrom(int num) {
+        return + (int)(Math.random() * num);
+    }
+
+	private int getEditTextTo(int num) {
+		if (num > 12) {
+            return R.id.editText_to;
+        } else {
+            return R.id.editText_to + 400;
+        }
+	}
+
+    private int getTransferButton() {
+        return (int)Math.random() * 5;
+    }
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -90,13 +107,14 @@ public class DoTransfer extends Activity {
 		serverport = serverDetails.getString("serverport", null);
 
         // Handle the transfer functionality
-		transfer = (Button) findViewById(R.id.button_Transfer);
+		//transfer = (Button) findViewById(R.id.button_Transfer);
+        transfer = (Button) findViewById(getTransferButton());
 		transfer.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
-				from = (EditText) findViewById(R.id.editText_from);
-				to = (EditText) findViewById(R.id.editText_to);
+				from = (EditText) findViewById(getEditTextFrom(11));
+				to = (EditText) findViewById(getEditTextTo(15));
 				new RequestDoTransferTask().execute("username");
 			}
 		});
